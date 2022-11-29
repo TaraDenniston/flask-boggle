@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Boggle - Let's Play!{% endblock %}
+
+{% block content %}
+<h1>Boggle</h1>
+<div id="board">
+    {% for row in board %}
+    <div class="row">
+        {% for letter in row %}
+        <div class="cell">{{letter}}</div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
