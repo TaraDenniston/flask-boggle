@@ -1,0 +1,35 @@
+div.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+#board {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  padding: 1rem;
+  border: 2px solid gray;
+  border-radius: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 3rem;
+  justify-content: space-evenly;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  font-size: 3rem;
+  padding: 1rem;
+}
