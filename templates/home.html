@@ -4,13 +4,24 @@
 
 {% block content %}
 <h1>Boggle</h1>
-<div id="board">
-    {% for row in board %}
-    <div class="row">
-        {% for letter in row %}
-        <div class="cell">{{letter}}</div>
+<section class="horizontal">
+    <div id="board" class="vertical">
+        {% for row in board %}
+        <div class="row horizontal">
+            {% for letter in row %}
+            <div class="cell">{{letter}}</div>
+            {% endfor %}
+        </div>
         {% endfor %}
     </div>
-    {% endfor %}
-</div>
+    <div id="display" class="vertical">
+        <div id="submit-word">
+            <h3>Find a word? Submit your guess!</h3>
+            <form action="/guess" method="post">
+                <input type="text" placeholder="word" name="guess">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
 {% endblock %}
