@@ -15,13 +15,15 @@
         {% endfor %}
     </div>
     <div id="display" class="vertical">
-        <div id="submit-word">
+        <div id="word-form">
             <h3>Find a word? Submit your guess!</h3>
-            <form action="/guess" method="post">
-                <input type="text" placeholder="word" name="guess">
+            <!-- <form method="POST">  -->
+            <form id="submit-word">
+                <input type="text" placeholder="word" id="guess" name="guess">
                 <button type="submit">Submit</button>
             </form>
         </div>
+        <div id="message"></div>
     </div>
 </section>
 {% endblock %}
