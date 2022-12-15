@@ -11,15 +11,11 @@ boggle_game = Boggle()
 def display_board():
     board = boggle_game.make_board()
     session['board'] = board
-    print(board)
     return render_template('home.html', board=board)
 
 @app.route('/guess')
 def guess_word():
-    print('hit /guess route')
     word = request.args['word']
-    print(word)
     board = session['board']
     response = boggle_game.check_valid_word(board, word)
-    print(response)
     return jsonify({'result': response})
