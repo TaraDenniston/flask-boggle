@@ -5,25 +5,44 @@
 {% block content %}
 <h1>Boggle</h1>
 <section class="horizontal">
-    <div id="board" class="vertical">
-        {% for row in board %}
-        <div class="row horizontal">
-            {% for letter in row %}
-            <div class="cell">{{letter}}</div>
+    <div id="game" class="vertical">
+        <div id="board" class="vertical">
+            {% for row in board %}
+            <div class="row horizontal">
+                {% for letter in row %}
+                <div class="cell">{{letter}}</div>
+                {% endfor %}
+            </div>
             {% endfor %}
         </div>
-        {% endfor %}
-    </div>
-    <div id="display" class="vertical">
-        <div id="word-form">
+        <div id="word-form" class="display-font-size">
             <h3>Find a word? Submit your guess!</h3>
-            <!-- <form method="POST">  -->
             <form id="submit-word">
                 <input type="text" placeholder="word" id="guess" name="guess">
                 <button type="submit">Submit</button>
             </form>
         </div>
-        <div id="message"></div>
+    </div>
+    <div id="display" class="vertical">
+        <div id="game-status" class="display-font-size horizontal">
+            <button type="button" id="start-new-game">Start New Game</button>
+            <div class="left-margin"><strong>Time Remaining:</strong></div>
+            <div id="timer"></div>
+        </div>        
+        <div id="message" class="display-margin"></div>
+        <div id="scores" class="horizontal display-margin display-font-size">
+            <div><strong>Current Score:</strong></div>  
+            <div id="curr_score">0</div>
+            <div><strong>High Score:</strong></div> 
+            <div id="high_score">0</div>
+        </div>
+                
+        <div id="word-list" class="vertical display-margin display-font-size">
+            <div><strong>Words Found</strong></div>
+            <div id="words" class="horizontal display-margin">
+                <!-- List of words goes here -->
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
