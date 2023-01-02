@@ -61,23 +61,40 @@ async function checkWord(evt) {
     $('#message').text(msg);
 }
 
-function beginTimer(evt) {
-    evt.preventDefault();
+async function updateStatistics() {
+    if (!gameInProgress) {
+        console.log('updating statistics');
+        // const response = await axios.post()
+    }
+
+
+}
+
+async function beginTimer(evt) {
+    // evt.preventDefault();
     gameInProgress = true;
     console.log('beginning timer')
+    $('#timer').text(60);
     $timerVal = $('#timer').text();
     console.log($timerVal);
 
     // Update the timer value every 1 second until it reaches 0
-    setInterval(function func() {
+    timer = setInterval(function func() {
         if ($timerVal <= 0) {
             gameInProgress = false;
+            
+            // return;
         }
         if (gameInProgress) {
             $timerVal -= 1;
             $('#timer').text($timerVal);
         }
     }, 1000);
+
+    if (!gameInProgress) {
+        await clearInterval(timer);
+        await updateStatistics();
+    }
 }
 
 
